@@ -69,6 +69,10 @@ main > .section-main >.main-img
     padding: 2em;
 }
 
+img{
+    width: 100%;
+}
+
 main > .section-main >.main-content
 {
     font-weight: bold;
