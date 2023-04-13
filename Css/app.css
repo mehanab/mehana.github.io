@@ -11,7 +11,7 @@ body, html
     font-family: 'SF Mono Regular', Geneva, Tahoma, sans-serif;
     font-weight: normal;
     color: white;
-    background-color: black;
+    background-color: rgb(52, 52, 52);
 }
 
 a 
@@ -26,7 +26,6 @@ header > nav.nav
     justify-content: space-between;
     align-items: center;
     min-height: 3.5em;
-    border-bottom: 2px solid rgb(0, 255, 179);
 }
 header > nav.nav > .logo
 {
@@ -40,7 +39,6 @@ header > nav.nav > .nav-content
 header > nav.nav > .nav-content > ul
 {
     display: flex;
-    /* width: 90%; */
     justify-content: space-around;  
     text-decoration: none;
     list-style: none;
@@ -61,22 +59,102 @@ main
 main > .section-main 
 {
     display: flex;
+    background-color: rgb(94, 94, 94);
+    max-height: 300px;
 }
 
 main > .section-main >.main-img
 {
-    min-width: 20%;
-    padding: 2em;
+    /* max-width: 20%; */
+    /* padding: 2em; */
 }
 
-img{
-    width: 100%;
+main > .section-main >.main-img > img#mi{
+    width: auto;
+    height: 100%;
+    max-height: calc(100vh - 100px);
+    transform: translate(20px, 4px);
+    z-index: 2;
+    /* transform: skew(0deg, 180deg); */
+    transition: width 2s, transform 5s;
+    
+}
+
+main > .section-main >.main-img > img#mi:hover
+{
+    /* rotate: 10deg; */
+    /* transform: scale(1.6); */
+    /* transform: translate(50px, 4px); */
+    /* transform: skew(0deg, 180deg); */
 }
 
 main > .section-main >.main-content
 {
     font-weight: bold;
     max-width: 30em;
+    min-width:  20%;
     padding: 2em;
     border: 2px solid rgb(0, 255, 179);
+    transition-delay: 1s;
+    transition-property: transform;
+    transition-duration: 5s;
+    overflow: hidden;
+}
+/* main > .section-main >.main-content:hover
+{
+
+    transform: translate(300px, 0px);
+} */
+@keyframes glissement {
+    from {
+      margin-right: 100%;
+      opacity: 0;
+      width: 300%;
+    }
+  
+    to {
+      margin-right: 0%;
+      opacity: 1;
+      width: 100%;
+    };
+}
+
+@keyframes glissementX {
+    from {
+      transform: translate(-100%, 0);
+      opacity: 0;
+    }
+  
+    to {
+        transform: translateX(0, 0);
+        opacity: 1;
+    };
+}
+@keyframes slidein {
+    from { 
+        opacity: 0;; 
+    }
+    to   { 
+        opacity: 1; 
+    }
+  }
+
+
+div.main-content > h1
+{
+    animation: 2s linear glissementX;
+   
+}
+div.main-content > p 
+{
+    opacity: 0;
+    display: block;
+    animation-duration:     5s;
+    animation-name: glissement;
+    animation-delay: 2s;
+}
+.cursor 
+{
+    font-size: larger;
+    animation: .7s linear 1s infinite slidein;
 }
