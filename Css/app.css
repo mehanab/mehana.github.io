@@ -60,7 +60,7 @@ main > .section-main
 {
     display: flex;
     background-color: rgb(94, 94, 94);
-    max-height: 300px;
+    max-height: 400px;
 }
 
 main > .section-main >.main-img
@@ -73,10 +73,10 @@ main > .section-main >.main-img > img#mi{
     width: auto;
     height: 100%;
     max-height: calc(100vh - 100px);
-    transform: translate(20px, 4px);
-    z-index: 2;
+
+    transform: translate(160px, 0px);
     /* transform: skew(0deg, 180deg); */
-    transition: width 2s, transform 5s;
+    /* transition: width 2s, transform 5s; */
     
 }
 
@@ -92,7 +92,7 @@ main > .section-main >.main-content
 {
     font-weight: bold;
     max-width: 30em;
-    min-width:  20%;
+    width:  40%;
     padding: 2em;
     border: 2px solid rgb(0, 255, 179);
     transition-delay: 1s;
@@ -140,18 +140,18 @@ main > .section-main >.main-content
   }
 
 
-div.main-content > h1
+div.main-content > h1, div.main-content > h2, div.main-content > p
 {
-    animation: 2s linear glissementX;
-   
+    /* display: none; */
+    /* animation: 2s linear glissementX;  */
 }
 div.main-content > p 
 {
-    opacity: 0;
+     /* opacity: 0;
     display: block;
     animation-duration:     5s;
     animation-name: glissement;
-    animation-delay: 2s;
+    animation-delay: 2s; */
 }
 .cursor 
 {

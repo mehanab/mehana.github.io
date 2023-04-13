@@ -1,15 +1,49 @@
-function title2(){
-        let tab = [];
-        let div = document.getElementById("main-content");
-        let titleH1Span = document.getElementsByClassName('cursor');
-        titleH1Span[0].style.display = 'none';
-        let titleH2 = div.getElementsByTagName('h2')[0];
+// Class to write
+class WritingInterval {
+    constructor(element) {
+        this.element = element;
+        this.tabOfstringToWrite = [];
+        this.setTimeIntervalId = null;
+        this.run = 0;
+    }
+    
+    finish() {
+        clearInterval(this.setTimeIntervalId);
+        this.setTimeIntervalId = null;
+    }
+
+    setDisplay()
+    {
+        this.tabOfstringToWrite = this.element.innerText.split('');
+        this.element.innerText = "";
+        this.element.style.display = "block";
+        //create span
         let span = document.createElement('span');
         span.className  = "cursor";
         span.innerHTML = "_";
         span.style.fontSize = "larger"
-        titleH2.appendChild(span);
-
+        this.element.appendChild(span);
+        
+    }
+    start(){
+        this.setTimeIntervalId = setInterval(()=> {
+            if(this.run >= this.tabOfstringToWrite.length) 
+            {
+                this.finish();
+            }else 
+            {
+                let span = this.element.getElementsByClassName('cursor')[0];
+                if(span)
+                {
+                    span.remove();
+                }
+                
+                this.element.innerHTML = this.element.innerHTML+ this.tabOfstringToWrite[this.run]
+                 + span.outerHTML;
+                 this.run++;
+            }
+        }, 40);
+    }
 }
 
 
@@ -18,41 +52,31 @@ function docReady() {
     // see if DOM is already available
     let docState = document.readyState;
     if (docState == "complete" || docState == "interactive") {
-     
-        setTimeout(()=>{
 
-            title2();
             // Le texte tu H2
-            let h2 = "Je m'appelle Mehana Abdelmoula";
-            let tab = h2.split('');
-
-            let i = 0;
-            let intervalId = null;
+            
             let div = document.getElementById("main-content");
-            let titleH2 = div.getElementsByTagName('h2')[0];
-            let span = titleH2.innerHTML;
+            let writeBonjour = new WritingInterval(div.getElementsByTagName('h1')[0]);
+            let writePresentation = new WritingInterval(div.getElementsByTagName('h2')[0]);
+            let writeProf = new WritingInterval(div.getElementsByTagName('p')[0]);
+            let time = 1000;
 
-            function finish() {
-                clearInterval(intervalId);
-            
-            }
+        setTimeout(()=>{
+            writeBonjour.setDisplay();
+            writeBonjour.start(); 
+        }, time);
 
-            function bip() {
-                if(i >= tab.length) finish();
-                else {	
-                    let span1 = titleH2.getElementsByClassName('cursor')[0];
-                    span1.remove();
-                    titleH2.innerHTML = titleH2.innerHTML+ tab[i] + span;
-                }	
-                i++;
-            }
+       
+        setTimeout(()=>{
+            writePresentation.setDisplay();
+            writePresentation.start(); 
+        },  time*4); 
 
-            function start(){
-                intervalId = setInterval(bip, 200);
-            }
-            start();
-            
-        }, 5000);
+        setTimeout(()=>{
+           
+            writeProf.setDisplay();
+            writeProf.start(); 
+        },  time*8);
     }
     else {
         document.addEventListener("DOMContentLoaded", ()=>{ docReady()});
