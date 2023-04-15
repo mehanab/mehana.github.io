@@ -52,8 +52,6 @@ function docReady() {
     // see if DOM is already available
     let docState = document.readyState;
     if (docState == "complete" || docState == "interactive") {
-
-            // Le texte tu H2
             
             let div = document.getElementById("main-content");
             let writeBonjour = new WritingInterval(div.getElementsByTagName('h1')[0]);
@@ -77,6 +75,12 @@ function docReady() {
             writeProf.setDisplay();
             writeProf.start(); 
         },  time*8);
+
+        let filled = document.getElementsByClassName("filled")[0];
+        filled.style.strokeDashoffset = 1;
+        addEventListener("load", (event) => {
+            filled.style.strokeDashoffset = 0;
+        });
     }
     else {
         document.addEventListener("DOMContentLoaded", ()=>{ docReady()});
