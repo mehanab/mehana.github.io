@@ -97,27 +97,24 @@ function docReady() {
         
 
         setTimeout(()=>{
-            document.getElementById("by_announcer").style.display ="none";
+
+            let svg_container = document.getElementById("by_announcer_content");
+            svg_container.style.transition = "all .5s ease"
+            svg_container.style.transform = "rotate(720deg)"
+
+            let by_announcer = document.getElementById("by_announcer");
+            by_announcer.style.transform= "translate(-100%, -100%) rotate(0turn) scale(0)";
+            by_announcer.style.opacity= "0";
+            
+            
             let div = document.getElementById("main-content");
             let writeBonjour = new WritingInterval(div.getElementsByTagName('h1')[0]);
             let writePresentation = new WritingInterval(div.getElementsByTagName('h2')[0]);
             let writeProf = new WritingInterval(div.getElementsByTagName('p')[0]);
 
-            // let announcer_text = document.getElementsByClassName("announcer_text")
-            
-            // for (let item of announcer_text) 
-            // {
-            //     item.style.opacity = 0;
-            // }
     
             setTimeout(()=>{
-                // for (let item of announcer_text) 
-                // {
-                //     item.style.opacity = 1;
-                // }
-                let rec_filled = document.getElementsByClassName("filled")[0];
-                rec_filled.style.strokeDashoffset = 1;
-                rec_filled.style.strokeDashoffset = 0;
+
                 writeBonjour.setDisplay();
                 writeBonjour.start();
                 setTimeout(()=>{
@@ -127,10 +124,10 @@ function docReady() {
                
                         writeProf.setDisplay();
                         writeProf.start(); 
-                    },  1000);
+                    },  2000);
                 },  500);
                  
-            }, 500);
+            }, 1000);
             
         }, 3000);
             

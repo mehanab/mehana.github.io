@@ -4,6 +4,12 @@
     url('../Fonts/FontsFree-Net-SFMono-Regular.ttf') format('truetype');
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body, html
 {
     margin: 0;
@@ -22,11 +28,14 @@ body, html
     position: absolute;
     top: 0;
     height: 100%;
-    background-color: rgb(16, 16, 16);
+    /* background: no-repeat center/100% url(../Img/backround.png); */
+    /* opacity: 0.5; */
+    background-color: rgb(52, 52, 52);
     width: 100%;
     display: flex;
     justify-content: center;
     overflow: hidden;
+    transition: all 3s ease-out;
 }
 
 #by_announcer > .announcer_content
@@ -49,7 +58,7 @@ body, html
     transition: stroke-dashoffset 1.5s ease-in-out;
 }
 
-@keyframes slidein {
+@keyframes opacity {
     from { 
         opacity: 0;
     }
@@ -60,7 +69,7 @@ body, html
 
 .announcer_text
 {
-    animation: 4s linear slidein; 
+    animation: 3s linear opacity; 
 }
 
 
@@ -80,15 +89,23 @@ header > nav.nav
     align-items: center;
     min-height: 3.5em;
 }
+
 header > nav.nav > .logo
 {
     margin-left: 3em;
     height: 3em;
+    transition: transform 1s ease;
+}
+
+.logo:hover 
+{
+    cursor: pointer;
+    transform: scale(1.2);
 }
 
 header > nav.nav > .nav-content
 {
-    min-width: 60%;
+    min-width: 30%;
 }
 header > nav.nav > .nav-content > ul
 {
@@ -113,8 +130,9 @@ main
 }
 main > .section-main 
 {
-    opacity: 0.55;
+    opacity: 0.70;
     display: flex;
+    justify-content: start;
     background-color: #272b35;
     max-height: 400px;
 }
@@ -125,28 +143,46 @@ main > .section-main >.main-content
     background-color: rgb(43, 43, 82);
     font-weight: bold;
     max-width: 30em;
-    width:  40%;
-    /* padding: 2em; */
-    /* border: 2px solid #00ffb3; */
-    /* transition-delay: 1s;
-    transition-property: transform;
-    transition-duration: 5s;
-    overflow: hidden; */
-
-    /* width: 100%;
-    height: 100%;
-    background: none;
-    border: none;
-    position: relative; */
-    /* transition: transform 4s ease; */
-
+    min-width:  40%;
+    margin: 3px;
 }
+
+main > .section-main >.main-content::before, main > .section-main >.main-content::after
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(90deg, #00ffb3,#21473c, #5b176e, #2b2b52/*#340255*/, #21242b);
+    background-size: 200%;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transform: scale(1.02);
+    animation: animate 10s infinite;
+}
+
+main > .section-main >.main-content::after
+{
+    /* filter: blur(20px); */
+}
+@keyframes animate {
+    0% {background-position: 0 0;}
+    50% {background-position: 300% 0;}
+    100% {background-position: 0 0;}
+  }
 
 main > .section-main >.main-content > #main-content
 {
     position: absolute;
     top: 10%;
     left: 10%;
+}
+
+.cursor 
+{
+    font-size: larger;
+    animation: .7s linear 1s infinite opacity;
 }
 
 .bg-svg
@@ -164,44 +200,18 @@ main > .section-main >.main-content > #main-content
     transition: stroke-dashoffset 4s ease-in-out;
 }
 
-main > .section-main >.main-content:hover .filled
+main > .section-main >.main-img
 {
-    /* stroke-dashoffset: 0; */
-    /* fait en JS */
+    z-index: 100;
 }
-
 main > .section-main >.main-img > img#mi{
     width: auto;
     height: 100%;
     max-height: calc(100vh - 100px);
-
-    transform: translate(160px, 0px);
-    /* transform: skew(0deg, 180deg);
-    transition: width 2s, transform 5s;
-     */
+    transform: translate(100px, 0px);
+    position: relative;
 }
 
-main > .section-main >.main-img
-{
-    /* max-width: 20%; */
-    /* padding: 2em; */
-}
-
-
-main > .section-main >.main-img > img#mi:hover
-{
-    /* rotate: 10deg; */
-    /* transform: scale(1.6); */
-    /* transform: translate(50px, 4px); */
-    /* transform: skew(0deg, 180deg); */
-}
-
-
-/* main > .section-main >.main-content:hover
-{
-
-    transform: translate(300px, 0px);
-} */
 @keyframes glissement {
     from {
       margin-right: 100%;
@@ -226,25 +236,4 @@ main > .section-main >.main-img > img#mi:hover
         transform: translateX(0, 0);
         opacity: 1;
     };
-}
-
-
-
-div.main-content > h1, div.main-content > h2, div.main-content > p
-{
-    /* display: none; */
-    /* animation: 2s linear glissementX;  */
-}
-div.main-content > p 
-{
-     /* opacity: 0;
-    display: block;
-    animation-duration:     5s;
-    animation-name: glissement;
-    animation-delay: 2s; */
-}
-.cursor 
-{
-    font-size: larger;
-    animation: .7s linear 1s infinite slidein;
 }
