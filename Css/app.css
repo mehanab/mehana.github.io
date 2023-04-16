@@ -14,6 +14,58 @@ body, html
     background-color: rgb(52, 52, 52);
 }
 
+
+/* Annoucer ----------------------------------------------------------*/
+
+#by_announcer
+{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background-color: rgb(16, 16, 16);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#by_announcer > .announcer_content
+{
+    width: 25%; 
+}
+
+.announcer_bg_svg
+{
+    stroke: #0000;
+    stroke-width: 3;
+}
+
+.announcer_filled
+{
+    stroke: #00ffb3;
+    stroke-width: 3;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset 1.5s ease-in-out;
+}
+
+@keyframes slidein {
+    from { 
+        opacity: 0;
+    }
+    to   { 
+        opacity: 1; 
+    }
+  }
+
+.announcer_text
+{
+    animation: 4s linear slidein; 
+}
+
+
+/* Body --------------------------------------------------------------------- */
+
 a 
 {
     text-decoration: none;
@@ -22,6 +74,7 @@ a
 
 header > nav.nav 
 {
+    padding: 1em 0 1em 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -30,6 +83,7 @@ header > nav.nav
 header > nav.nav > .logo
 {
     margin-left: 3em;
+    height: 3em;
 }
 
 header > nav.nav > .nav-content
@@ -54,7 +108,7 @@ header > nav.nav > .nav-content > ul > li
 main 
 {
     background: no-repeat center/100% url(../Img/backround.png);
-    padding-top: 5em;
+    padding-top: 3em;
 
 }
 main > .section-main 
@@ -84,7 +138,7 @@ main > .section-main >.main-content
     background: none;
     border: none;
     position: relative; */
-    transition: transform 4s ease;
+    /* transition: transform 4s ease; */
 
 }
 
@@ -107,7 +161,7 @@ main > .section-main >.main-content > #main-content
     stroke-width: 3;
     stroke-dasharray: 1;
     stroke-dashoffset: 1;
-    transition: stroke-dashoffset 1s ease-in-out;
+    transition: stroke-dashoffset 4s ease-in-out;
 }
 
 main > .section-main >.main-content:hover .filled
@@ -173,14 +227,7 @@ main > .section-main >.main-img > img#mi:hover
         opacity: 1;
     };
 }
-@keyframes slidein {
-    from { 
-        opacity: 0;; 
-    }
-    to   { 
-        opacity: 1; 
-    }
-  }
+
 
 
 div.main-content > h1, div.main-content > h2, div.main-content > p
