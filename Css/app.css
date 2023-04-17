@@ -20,6 +20,20 @@ body, html
     background-color: rgb(52, 52, 52);
 }
 
+body::-webkit-scrollbar {
+    width: 12px; /* width of the entire scrollbar */
+}
+  
+body::-webkit-scrollbar-track {
+    background: #343434;/* color of the tracking area */
+}
+  
+body::-webkit-scrollbar-thumb {
+    background-color: rgb(74, 28, 87); /* color of the scroll thumb */
+    border-radius: 20px; /* roundness of the scroll thumb */
+    border: 3px solid #00ffb3 /* creates padding around scroll thumb */
+}
+
 
 /* Annoucer ----------------------------------------------------------*/
 
@@ -29,7 +43,7 @@ body, html
     top: 0;
     left: 0;
     height: 100%;
-    background-color: rgb(52, 52, 52);
+    background-color: #343434;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -74,11 +88,6 @@ body, html
 
 /* Body --------------------------------------------------------------------- */
 
-.hidden 
-{
-    visibility: hidden;
-}
-
 #container 
 {
     max-width: 100em;
@@ -110,7 +119,7 @@ header > nav.nav > .logo
 
 .logo:hover 
 {
-    cursor: pointer;
+    /* cursor: pointer; */
     transform: scale(1.2);
 }
 
@@ -167,7 +176,7 @@ main > .section-main >.main-content
     background-color: rgb(43, 43, 82);
     font-weight: bold;
     /* max-width: 16em; */
-    min-width:  43%;
+    min-width:  63%;
     margin: 3px;
     min-height: 20em;
     align-self: center;
@@ -232,14 +241,14 @@ main > .section-main >.main-img > img#mi{
     max-height: calc(90vh - 100px);
     transform: translate(65px, 0px);
     position: relative;
-    filter: grayscale(100%) contrast(1) brightness(90%);
+    filter: grayscale(100%) contrast(1) brightness(90%) drop-shadow(-45px 0px 0px #000 /*#00FFb3*/);
     cursor: grab;
     /* filter: drop-shadow(-45px 0px 0px #000 /*#00FFb3*//*) invert(5%);*/
 }
 
 main > .section-main >.main-img > img#mi:hover
 {
-    filter: none;
+    filter: drop-shadow(-45px 0px 0px #000 /*#00FFb3*/);
 }
 
 .cursor 
