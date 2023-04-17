@@ -103,9 +103,12 @@ function docReady() {
             svg_container.style.transform = "rotate(3turn)"
 
             let by_announcer = document.getElementById("by_announcer");
-            by_announcer.style.transform= "translate(-100%, -100%) rotate(2turn) scale(0)";
+            by_announcer.style.transform= "translate(-100%, -100%) scale(0)";
             by_announcer.style.opacity= "0";
-            
+
+            let container = document.getElementById("container");
+            container.style.display ="block"
+
             
             let div = document.getElementById("main-content");
             let writeBonjour = new WritingInterval(div.getElementsByTagName('h1')[0]);

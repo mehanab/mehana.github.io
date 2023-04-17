@@ -27,9 +27,8 @@ body, html
 {
     position: absolute;
     top: 0;
+    left: 0;
     height: 100%;
-    /* background: no-repeat center/100% url(../Img/backround.png); */
-    /* opacity: 0.5; */
     background-color: rgb(52, 52, 52);
     width: 100%;
     display: flex;
@@ -75,12 +74,17 @@ body, html
 
 /* Body --------------------------------------------------------------------- */
 
-a 
+.hidden 
 {
-    text-decoration: none;
-    color: white;
+    visibility: hidden;
 }
 
+#container 
+{
+    max-width: 100em;
+    margin: auto;
+    display: none;
+}
 header > nav.nav 
 {
     padding: 1em 0 1em 0;
@@ -88,7 +92,14 @@ header > nav.nav
     justify-content: space-between;
     align-items: center;
     min-height: 3.5em;
+    animation: 4s ease 1s 1 normal both animateNav;
+    overflow: hidden;
 }
+
+@keyframes animateNav {
+    0% {width: 0%;}
+    100% {width: 100%;}
+  }
 
 header > nav.nav > .logo
 {
@@ -122,19 +133,32 @@ header > nav.nav > .nav-content > ul > li
     margin: 0 1em;
 }
 
+header > nav.nav > .nav-content a 
+{
+    text-decoration: none;
+    color: white;
+}
+
+header > nav.nav > .nav-content a:hover
+{
+    color: #00ffb3;
+}
+
 main 
 {
     background: no-repeat center/100% url(../Img/backround.png);
     padding-top: 3em;
+    min-height: 95vh;
 
 }
 main > .section-main 
 {
     opacity: 0.70;
     display: flex;
-    justify-content: start;
+    justify-content: center;
+    align-items: center;
     background-color: #272b35;
-    max-height: 400px;
+    max-height: 75vh;
 }
 
 main > .section-main >.main-content
@@ -142,9 +166,11 @@ main > .section-main >.main-content
     position: relative;
     background-color: rgb(43, 43, 82);
     font-weight: bold;
-    max-width: 30em;
-    min-width:  40%;
+    /* max-width: 16em; */
+    min-width:  43%;
     margin: 3px;
+    min-height: 20em;
+    align-self: center;
 }
 
 main > .section-main >.main-content::before, main > .section-main >.main-content::after
@@ -164,7 +190,7 @@ main > .section-main >.main-content::before, main > .section-main >.main-content
 
 main > .section-main >.main-content::after
 {
-    /* filter: blur(20px); */
+    filter: blur(20px);
 }
 @keyframes animate {
     0% {background-position: 0 0;}
@@ -172,11 +198,48 @@ main > .section-main >.main-content::after
     100% {background-position: 0 0;}
   }
 
-main > .section-main >.main-content > #main-content
+#main-content
 {
     position: absolute;
     top: 10%;
     left: 10%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#main-content > h1, #main-content > h2
+{
+    font-weight: bolder;
+    font-size: xx-large;
+}
+
+#main-content > p 
+{
+    font-weight: bold;
+    font-size: large;
+    line-height: 32px;
+}
+
+main > .section-main >.main-img
+{
+    z-index: 100;
+}
+main > .section-main >.main-img > img#mi{
+    width: auto;
+    height: 100%;
+    max-height: calc(90vh - 100px);
+    transform: translate(65px, 0px);
+    position: relative;
+    filter: grayscale(100%) contrast(1) brightness(90%);
+    cursor: grab;
+    /* filter: drop-shadow(-45px 0px 0px #000 /*#00FFb3*//*) invert(5%);*/
+}
+
+main > .section-main >.main-img > img#mi:hover
+{
+    filter: none;
 }
 
 .cursor 
@@ -198,18 +261,6 @@ main > .section-main >.main-content > #main-content
     stroke-dasharray: 1;
     stroke-dashoffset: 1;
     transition: stroke-dashoffset 4s ease-in-out;
-}
-
-main > .section-main >.main-img
-{
-    z-index: 100;
-}
-main > .section-main >.main-img > img#mi{
-    width: auto;
-    height: 100%;
-    max-height: calc(100vh - 100px);
-    transform: translate(100px, 0px);
-    position: relative;
 }
 
 @keyframes glissement {
