@@ -99,11 +99,11 @@ function docReady() {
         setTimeout(()=>{
 
             let svg_container = document.getElementById("by_announcer_content");
-            svg_container.style.transition = "all .5s ease"
-            svg_container.style.transform = "rotate(720deg)"
+            svg_container.style.transition = "all 1s ease"
+            svg_container.style.transform = "rotate(3turn)"
 
             let by_announcer = document.getElementById("by_announcer");
-            by_announcer.style.transform= "translate(-100%, -100%) rotate(0turn) scale(0)";
+            by_announcer.style.transform= "translate(-100%, -100%) rotate(2turn) scale(0)";
             by_announcer.style.opacity= "0";
             
             

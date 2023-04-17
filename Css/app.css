@@ -159,7 +159,7 @@ main > .section-main >.main-content::before, main > .section-main >.main-content
     height: 100%;
     z-index: -1;
     transform: scale(1.02);
-    animation: animate 10s infinite;
+    animation: 10s animate 4s infinite;
 }
 
 main > .section-main >.main-content::after
