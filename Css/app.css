@@ -49,6 +49,7 @@ body::-webkit-scrollbar-thumb {
     justify-content: center;
     overflow: hidden;
     transition: all 3s ease-out;
+    
 }
 
 #by_announcer > .announcer_content
