@@ -49,7 +49,6 @@ body::-webkit-scrollbar-thumb {
     justify-content: center;
     overflow: hidden;
     transition: all 3s ease-out;
-    
 }
 
 #by_announcer > .announcer_content
@@ -95,6 +94,7 @@ body::-webkit-scrollbar-thumb {
     margin: auto;
     display: none;
 }
+
 header > nav.nav 
 {
     padding: 1em 0 1em 0;
@@ -105,6 +105,12 @@ header > nav.nav
     animation: 4s ease 1s 1 normal both animateNav;
     overflow: hidden;
 }
+
+.fixed
+{
+    position: fixed;
+}
+
 
 @keyframes animateNav {
     0% {width: 0%;}

@@ -100,10 +100,10 @@ function docReady() {
 
             let svg_container = document.getElementById("by_announcer_content");
             svg_container.style.transition = "all 1s ease"
-            svg_container.style.transform = "rotate(3turn)"
+            svg_container.style.transform = "rotate(3turn) translate(-100%, -100%) scale(0)"
 
             let by_announcer = document.getElementById("by_announcer");
-            by_announcer.style.transform= "translate(-100%, -100%) scale(0)";
+            // by_announcer.style.transform= "translate(-100%, -100%) scale(0)";
             by_announcer.style.opacity= "0";
 
             let container = document.getElementById("container");
@@ -140,6 +140,14 @@ function docReady() {
             e.preventDefault();
             window.open('./Resume/resume.pdf')
         })
+
+        // let nav = document.getElementById("nav");
+        // document.addEventListener("scroll", ()=>{
+        //     if (window.scrollY > 40) {
+        //         nav.classList.add("test")
+        //     }
+        // })
+        
             
     }
     else {
