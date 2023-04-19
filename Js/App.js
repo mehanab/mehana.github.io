@@ -133,6 +133,13 @@ function docReady() {
             }, 1000);
             
         }, 3000);
+
+
+        let resume = document.getElementById("resume_file");
+        resume.addEventListener('click', (e)=>{
+            e.preventDefault();
+            window.open('./Resume/resume.pdf')
+        })
             
     }
     else {
