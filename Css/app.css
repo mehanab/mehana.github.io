@@ -45,7 +45,7 @@ body::-webkit-scrollbar-thumb {
     height: 100%;
     background-color: #343434;
     width: 100%;
-    display: none;
+    display: flex;
     justify-content: center;
     overflow: hidden;
     transition: all 3s ease-out;
