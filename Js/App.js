@@ -103,7 +103,7 @@ function docReady() {
             svg_container.style.transform = "rotate(3turn) translate(-100%, -100%) scale(0)"
 
             let by_announcer = document.getElementById("by_announcer");
-            // by_announcer.style.transform= "translate(-100%, -100%) scale(0)";
+            // by_announcer.style.transform= "translate(-100%, -100%)";
             by_announcer.style.opacity= "0";
 
             let container = document.getElementById("container");
@@ -117,14 +117,13 @@ function docReady() {
 
     
             setTimeout(()=>{
-
                 writeBonjour.setDisplay();
                 writeBonjour.start();
                 setTimeout(()=>{
                     writePresentation.setDisplay();
                     writePresentation.start(); 
                     setTimeout(()=>{
-               
+                        by_announcer.style.display= "none";
                         writeProf.setDisplay();
                         writeProf.start(); 
                     },  2000);
@@ -141,12 +140,37 @@ function docReady() {
             window.open('./Resume/resume.pdf')
         })
 
-        // let nav = document.getElementById("nav");
-        // document.addEventListener("scroll", ()=>{
-        //     if (window.scrollY > 40) {
-        //         nav.classList.add("test")
-        //     }
-        // })
+        let scroll_pos = 0;
+        let nav = document.getElementById("nav");
+        document.addEventListener("scroll", (e)=>{
+            if (window.scrollY == 0) {
+                scroll_pos = 0
+                nav.classList.remove("slide-nav-in");
+            }
+           
+            if(scroll_pos == 0)
+            {
+                if (window.scrollY > 60) {
+                    nav.classList.add("slide-nav-out")
+                    scroll_pos = window.scrollY;
+                }
+            }
+            else
+            {
+                if (window.scrollY < scroll_pos) 
+                {
+                    nav.classList.remove("slide-nav-out")
+                    nav.classList.add("slide-nav-in")
+                    scroll_pos = window.scrollY;
+                }else if(window.scrollY > scroll_pos)
+                {
+                    nav.classList.remove("slide-nav-in")
+                    nav.classList.add("slide-nav-out")
+                    scroll_pos = window.scrollY;
+                }
+            }
+            
+        })
         
             
     }

@@ -97,6 +97,7 @@ body::-webkit-scrollbar-thumb {
 
 header > nav.nav 
 {
+    position: fixed; 
     padding: 1em 0 1em 0;
     display: flex;
     justify-content: space-between;
@@ -104,11 +105,21 @@ header > nav.nav
     min-height: 3.5em;
     animation: 4s ease 1s 1 normal both animateNav;
     overflow: hidden;
+    transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+    /* transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1); */
 }
 
-.fixed
+.slide-nav-in
 {
-    position: fixed;
+    transform: translateY(0em);
+    background-color: #343434;
+    z-index: 999;
+}
+
+.slide-nav-out
+{
+    transform: translateY(-5em);
+    background-color: none;
 }
 
 
@@ -163,8 +174,8 @@ header > nav.nav > .nav-content a:hover
 main 
 {
     background: no-repeat center/100% url(../Img/backround.png);
-    padding-top: 3em;
-    min-height: 95vh;
+    padding-top: 6em;
+    min-height: 100vh;
 
 }
 main > .section-main 
