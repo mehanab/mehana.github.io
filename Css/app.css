@@ -150,6 +150,14 @@ header > nav.nav > .logo
     transition: transform 1s ease;
 }
 
+.logo
+{
+    width: 7%;
+}
+.logo img
+{
+    width: 100%;
+}
 .logo:hover 
 {
     /* cursor: pointer; */
