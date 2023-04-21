@@ -1,3 +1,9 @@
+//Config
+
+let config = {
+    timeOut : null
+}
+
 // Class to write
 class WritingInterval {
     constructor(element) {
@@ -44,6 +50,40 @@ class WritingInterval {
             }
         }, 40);
     }
+}
+
+class layoutCascade
+{
+    constructor(element)
+    {
+        this.nodes = element;
+        this.count = element.length;
+    }
+
+    setCascading = (event) =>
+    {
+        if (this.count > 0) 
+        {
+            for( let item of this.nodes)
+            {
+                if(item.offsetTop <= window.scrollY +((screen.availHeight /3)*2)-100)
+                {
+                    item.classList.add("slide_cascade_in")
+                    item.classList.remove("slide_cascade_out")
+                    this.count-=1;
+                }  
+            }
+        }
+        else 
+        {
+            return document.removeEventListener("scroll", this.setCascading);     
+        }
+    }
+
+    setHandler()
+    {
+        return document.addEventListener("scroll", this.setCascading);
+    } 
 }
 
 class setAnnouncer
@@ -130,7 +170,8 @@ function docReady() {
                 },  500);
                  
             }, 1000);
-            
+            //Scroll 1px pour provoquer l'event "scroll" plus bas
+            window.scrollBy(0, 1)
         }, 3000);
 
 
@@ -168,11 +209,11 @@ function docReady() {
                     nav.classList.add("slide-nav-out")
                     scroll_pos = window.scrollY;
                 }
-            }
-            
+            }  
         })
         
-            
+        let layout = new layoutCascade(document.getElementsByClassName("slide_cascade_out"));
+        layout.setHandler();
     }
     else {
         document.addEventListener("DOMContentLoaded", ()=>{ docReady()});

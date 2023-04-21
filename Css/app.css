@@ -122,6 +122,20 @@ header > nav.nav
     background-color: none;
 }
 
+.opac {
+    transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+}
+
+.slide_cascade_out
+{
+    opacity: 0;
+}
+
+.slide_cascade_in
+{
+    opacity: 1;
+}
+
 
 @keyframes animateNav {
     0% {width: 0%;}
