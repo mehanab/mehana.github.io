@@ -60,29 +60,31 @@ class layoutCascade
         this.count = element.length;
     }
 
-    setCascading = (event) =>
+    setClass = (event) =>
     {
         if (this.count > 0) 
         {
-            for( let item of this.nodes)
-            {
-                if(item.offsetTop <= window.scrollY +((screen.availHeight /3)*2)-100)
-                {
-                    item.classList.add("slide_cascade_in")
-                    item.classList.remove("slide_cascade_out")
-                    this.count-=1;
+            for(let item of this.nodes)
+            {   
+                if(item.offsetTop <= window.scrollY + (window.innerHeight - 150))
+                {     
+                    if(item.classList.contains("slide_cascade_out"))
+                    {
+                        item.classList.replace("slide_cascade_out", "slide_cascade_in")
+                        this.count-=1;
+                    }                 
                 }  
             }
         }
         else 
         {
-            return document.removeEventListener("scroll", this.setCascading);     
+            return document.removeEventListener("scroll", this.setClass);     
         }
     }
 
     setHandler()
     {
-        return document.addEventListener("scroll", this.setCascading);
+        return document.addEventListener("scroll", this.setClass);
     } 
 }
 
@@ -214,6 +216,18 @@ function docReady() {
         
         let layout = new layoutCascade(document.getElementsByClassName("slide_cascade_out"));
         layout.setHandler();
+
+
+        let bur = document.getElementById("nav-content")
+        bur.addEventListener("click", function(){
+            if(bur.classList.contains("nav-content-bur"))
+            {
+                bur.classList.replace("nav-content-bur", "nav-content-cross") 
+            }else if(bur.classList.contains("nav-content-cross"))
+            {
+                bur.classList.replace("nav-content-cross", "nav-content-bur") 
+            }
+        })
     }
     else {
         document.addEventListener("DOMContentLoaded", ()=>{ docReady()});
