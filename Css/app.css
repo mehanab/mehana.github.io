@@ -547,7 +547,11 @@ footer p
 
 @media only screen and (max-width: 880px) {
     
-
+    main 
+    {
+        /* min-height: 0; */
+        padding-top: 0;
+    }
     main > .section-main >.main-img 
     {
         display: none;
@@ -555,10 +559,12 @@ footer p
 
     header > nav.nav
     {
+        position: relative;
         z-index: 999;
         overflow: visible;
         animation: none;
         width: 100%;
+        transition: none;
     }
 
     header > nav.nav > .nav-content {
@@ -618,6 +624,11 @@ footer p
         width: 100%;
         margin: 0;
     }
+
+    header > nav.nav > .nav-content > ul > li:first-child
+    {
+        border-top: none;
+    }
     
     .transformed {
         transform: translate(-40px, 0);
@@ -635,6 +646,10 @@ footer p
 
 @media only screen and (max-width: 750px)
 {
+    header > nav.nav > .logo
+    {
+        width: 55px;
+    }
     header > nav.nav > .nav-content
     {
         width: 100%;
@@ -651,17 +666,45 @@ footer p
         padding: 2em;
     }
 
+    header > nav.nav > .nav-content a 
+    {
+        font-weight: 800;
+    }
+    main 
+    {
+        min-height: 0;
+    }
+    main > .section-main
+    {
+        padding-top: 3em;
+    }
     main > .section-main >.main-content 
     {
         width: 95%;
+        min-height: 30em;
+        margin: 1em;
+    }
+    .block_set
+    {
+        padding-top: 5em;
     }
     .sp{
         flex-direction: column;
     }
 
+    .about .sp
+    {
+        max-width: 100%;
+    }
+
     .sp_block_left, .sp_block_right
     {
         max-width: 100%;
+    }
+
+    .sp_block_right
+    {
+        padding: 0;
     }
 
     .sp_block_left .intro
