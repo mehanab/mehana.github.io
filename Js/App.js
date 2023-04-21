@@ -125,7 +125,11 @@ class setAnnouncer
     }
 }
 
-
+function mobilecheck() {
+    return (typeof window.orientation !== "undefined") 
+      || (navigator.userAgent.indexOf('IEMobile') !== -1
+      );
+};
 
 function docReady() {
     // see if DOM is already available
@@ -136,13 +140,15 @@ function docReady() {
         let announcer = new setAnnouncer(announcer_filled);
         announcer.setStyle();
         announcer.setListener();
-        
 
         setTimeout(()=>{
 
             let svg_container = document.getElementById("by_announcer_content");
-            svg_container.style.transition = "all 1s ease"
-            svg_container.style.transform = "rotate(3turn) translate(-100%, -100%) scale(0)"
+            svg_container.style.transition = "all 1s ease";
+            if (!mobilecheck()) {
+                svg_container.style.transform = "rotate(3turn) translate(-100%, -100%) scale(0)";   
+            }
+            
 
             let by_announcer = document.getElementById("by_announcer");
             // by_announcer.style.transform= "translate(-100%, -100%)";
