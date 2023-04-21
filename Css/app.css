@@ -716,6 +716,11 @@ footer p
         transform: none;
     }
 
+    .slide-nav-out
+    {
+        transform: none;
+    }
+
     .h3{
         font-size: 18px;
         padding-left: 35%;
