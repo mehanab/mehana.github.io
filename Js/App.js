@@ -159,8 +159,8 @@ function docReady() {
 
             
             let div = document.getElementById("main-content");
-            let writeBonjour = new WritingInterval(div.getElementsByTagName('h1')[0]);
-            let writePresentation = new WritingInterval(div.getElementsByTagName('h2')[0]);
+            let writeBonjour = new WritingInterval(div.getElementsByTagName('h2')[0]);
+            let writePresentation = new WritingInterval(div.getElementsByTagName('h3')[0]);
             let writeProf = new WritingInterval(div.getElementsByTagName('p')[0]);
 
     

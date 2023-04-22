@@ -107,7 +107,6 @@ header > nav.nav
     animation: 4s ease 1s 1 normal both animateNav;
     overflow: hidden;
     transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
-    /* transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1); */
 }
 
 .slide-nav-in
@@ -156,7 +155,6 @@ header > nav.nav > .logo
 }
 .logo:hover 
 {
-    /* cursor: pointer; */
     transform: scale(1.2);
 }
 
@@ -218,7 +216,6 @@ main > .section-main >.main-content
     position: relative;
     background-color: rgb(43, 43, 82);
     font-weight: bold;
-    /* max-width: 16em; */
     width:  60%;
     margin: 2em;
     min-height: 20em;
@@ -325,12 +322,10 @@ main > .section-main >.main-img > img#mi:hover
 {
     max-width: 90%;
     margin: auto; 
-    /* margin-top: em; */
 }
 
 .sp
 {
-    /* position: relative; */
     max-width: 80%;
     text-align: left;
     margin: auto;
@@ -338,7 +333,6 @@ main > .section-main >.main-img > img#mi:hover
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    /* align-items: flex-start; */
 }
 
 .sp_content > *
@@ -351,7 +345,6 @@ main > .section-main >.main-img > img#mi:hover
    background-color: #2b2b52;
    padding: 2em;
    font-weight: bolder;
-   /* border-radius: 20px; */
    opacity: .8;
    box-shadow: 20px 20px 30px black;
 }
@@ -376,7 +369,6 @@ main > .section-main >.main-img > img#mi:hover
     width: 40%;
     background-size: 150%;
     height: 2px;
-    /* z-index: -1; */
     transform: scale(1.02);
     animation: 10s animate 4s infinite;
    
@@ -549,7 +541,7 @@ footer p
 
 }
 
-@media only screen and (max-width: 880px), screen and (min-height: 1025px)
+@media only screen and (max-width: 890px), screen and (min-width: 890px) and (min-height: 780px)
 {
     
     main > .section-main >.main-img 
