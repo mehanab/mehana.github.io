@@ -549,13 +549,9 @@ footer p
 
 }
 
-@media only screen and (max-width: 880px) {
+@media only screen and (max-width: 880px), screen and (min-height: 1025px)
+{
     
-    main 
-    {
-        /* min-height: 0; */
-        padding-top: 0;
-    }
     main > .section-main >.main-img 
     {
         display: none;
@@ -645,15 +641,23 @@ footer p
     {
         font-size: 12px;
     }
+
+    main
+    {
+        min-height: 0;
+    }
 }
+
 
 
 @media only screen and (max-width: 750px)
 {
-    /* header > nav.nav > .logo
+    header > nav.nav > .logo
     {
-        width: 55px;
-    } */
+        margin-left: 1.5em;
+        width: 10%;
+        padding-top: 14px;
+    }
     header > nav.nav > .nav-content
     {
         width: 100%;
@@ -676,12 +680,10 @@ footer p
     }
     main 
     {
+        background-size: 200%;
         min-height: 0;
     }
-    main > .section-main
-    {
-        padding-top: 3em;
-    }
+
     main > .section-main >.main-content 
     {
         width: 95%;
