@@ -608,7 +608,7 @@ footer p
         z-index: 999;
         position: relative;
         align-items: center;
-        background: #000;
+        background: #343434;
     }
     header > nav.nav > .nav-content > ul > li {
         padding: 14% 2em;
